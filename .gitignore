@@ -1,3 +1,4 @@
 *.resx
 **obj/
 **bin/
+**.vs/
