@@ -32,6 +32,8 @@
             panel1 = new Panel();
             button2 = new Button();
             pnlOperConj = new Panel();
+            textBox1 = new TextBox();
+            lblConj = new Label();
             radioButton2 = new RadioButton();
             rBtnConjs2 = new RadioButton();
             lblConjC = new Label();
@@ -53,8 +55,7 @@
             BtnDiferenciaChart = new Button();
             BtnUnionChart = new Button();
             BtnInterChart = new Button();
-            lblConj = new Label();
-            textBox1 = new TextBox();
+            lblRes = new Label();
             panel1.SuspendLayout();
             pnlOperConj.SuspendLayout();
             SuspendLayout();
@@ -94,6 +95,7 @@
             // 
             // pnlOperConj
             // 
+            pnlOperConj.Controls.Add(lblRes);
             pnlOperConj.Controls.Add(textBox1);
             pnlOperConj.Controls.Add(lblConj);
             pnlOperConj.Controls.Add(radioButton2);
@@ -124,6 +126,22 @@
             pnlOperConj.Size = new Size(493, 481);
             pnlOperConj.TabIndex = 2;
             pnlOperConj.Visible = false;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(47, 186);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(373, 31);
+            textBox1.TabIndex = 22;
+            // 
+            // lblConj
+            // 
+            lblConj.AutoSize = true;
+            lblConj.Location = new Point(99, 232);
+            lblConj.Name = "lblConj";
+            lblConj.Size = new Size(88, 24);
+            lblConj.TabIndex = 21;
+            lblConj.Text = "Conjuntos";
             // 
             // radioButton2
             // 
@@ -311,21 +329,14 @@
             BtnInterChart.Text = "∩";
             BtnInterChart.UseVisualStyleBackColor = true;
             // 
-            // lblConj
+            // lblRes
             // 
-            lblConj.AutoSize = true;
-            lblConj.Location = new Point(99, 232);
-            lblConj.Name = "lblConj";
-            lblConj.Size = new Size(88, 24);
-            lblConj.TabIndex = 21;
-            lblConj.Text = "Conjuntos";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(47, 186);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(373, 31);
-            textBox1.TabIndex = 22;
+            lblRes.AutoSize = true;
+            lblRes.Location = new Point(177, 159);
+            lblRes.Name = "lblRes";
+            lblRes.Size = new Size(86, 24);
+            lblRes.TabIndex = 23;
+            lblRes.Text = "Resultado";
             // 
             // Calculadora
             // 
@@ -371,5 +382,6 @@
         private RadioButton radioButton2;
         private Label lblConj;
         private TextBox textBox1;
+        private Label lblRes;
     }
 }
