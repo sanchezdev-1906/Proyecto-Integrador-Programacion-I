@@ -10,19 +10,16 @@ namespace Proyecto_Integrador_Programacion_I
     {
         
         Dictionary<string, HashSet<int>> ConjuntosElementos = new Dictionary<string, HashSet<int>>();
-        List<int> CalcularConjuntos(string cadena)
+        /// <summary>
+        /// Analiza una cadena, extrae las expresiones y calcula las operaciones
+        /// </summary>
+        /// <param name="cadena"></param>
+        /// <returns></returns>
+        /// <exception cref="DuplicatedSymbolsException"></exception>
+        HashSet<int> CalcularConjuntos(string cadena)
         {
             cadena = cadena.Replace(" ", "");
-            try
-            {
-
-            }
-            catch (Exception e)
-            {
-
-                throw;
-            }
-            Duplicados(cadena);
+                Duplicados(cadena);
             int inicioParentesis = cadena.IndexOfAny(new char[] { '(', ')' });
             if (inicioParentesis != -1 && cadena[inicioParentesis] == ')')
                 throw new Exception("Error de sintaxis )");
@@ -33,7 +30,7 @@ namespace Proyecto_Integrador_Programacion_I
             if (cadena.Length == 1) return ConjuntosElementos[cadena];
             else
             {
-                List<List<int>> Conjuntos = new List<List<int>>();
+                List<HashSet<int>> Conjuntos = new List<HashSet<int>>();
                 List<char> Operadores = new List<char>();
                 string[] expressions = ExtraerExpresiones(cadena);
                 foreach (var expression in expressions)
@@ -146,6 +143,11 @@ namespace Proyecto_Integrador_Programacion_I
             }
             return index == cadena.Length ? -1 : index;
         }
-
+    }
+    public class DuplicatedSymbolsException : Exception
+    {
+        public DuplicatedSymbolsException() : base() { }
+        public DuplicatedSymbolsException(string message) : base(message) { }
+        public DuplicatedSymbolsException(string message, Exception inner) : base(message, inner) { }
     }
 }
