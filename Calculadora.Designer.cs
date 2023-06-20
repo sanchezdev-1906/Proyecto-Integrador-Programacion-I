@@ -82,19 +82,21 @@
             pnlPrincipal.Font = new Font("Noto Sans Math", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             pnlPrincipal.Location = new Point(159, 0);
             pnlPrincipal.Name = "pnlPrincipal";
-            pnlPrincipal.Size = new Size(499, 481);
+            pnlPrincipal.Size = new Size(500, 481);
             pnlPrincipal.TabIndex = 2;
-            pnlPrincipal.Visible = false;
             // 
             // Calculadora
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(658, 481);
+            ClientSize = new Size(659, 481);
             Controls.Add(pnlPrincipal);
             Controls.Add(panel1);
+            MinimumSize = new Size(675, 520);
             Name = "Calculadora";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
+            SizeChanged += Calculadora_SizeChanged;
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
