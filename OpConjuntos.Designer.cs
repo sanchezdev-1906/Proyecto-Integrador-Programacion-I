@@ -57,7 +57,7 @@
             // lblRes
             // 
             lblRes.AutoSize = true;
-            lblRes.Location = new Point(250, 240);
+            lblRes.Location = new Point(204, 184);
             lblRes.Margin = new Padding(4, 0, 4, 0);
             lblRes.Name = "lblRes";
             lblRes.Size = new Size(86, 24);
@@ -66,7 +66,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(51, 269);
+            textBox1.Location = new Point(5, 213);
             textBox1.Margin = new Padding(4, 5, 4, 5);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(492, 31);
@@ -75,7 +75,7 @@
             // lblConj
             // 
             lblConj.AutoSize = true;
-            lblConj.Location = new Point(131, 316);
+            lblConj.Location = new Point(85, 260);
             lblConj.Margin = new Padding(4, 0, 4, 0);
             lblConj.Name = "lblConj";
             lblConj.Size = new Size(88, 24);
@@ -85,10 +85,10 @@
             // radioButton2
             // 
             radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(191, 362);
+            radioButton2.Location = new Point(145, 306);
             radioButton2.Margin = new Padding(4, 5, 4, 5);
             radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(37, 28);
+            radioButton2.Size = new Size(40, 28);
             radioButton2.TabIndex = 44;
             radioButton2.TabStop = true;
             radioButton2.Text = "3";
@@ -97,10 +97,10 @@
             // rBtnConjs2
             // 
             rBtnConjs2.AutoSize = true;
-            rBtnConjs2.Location = new Point(124, 362);
+            rBtnConjs2.Location = new Point(78, 306);
             rBtnConjs2.Margin = new Padding(4, 5, 4, 5);
             rBtnConjs2.Name = "rBtnConjs2";
-            rBtnConjs2.Size = new Size(37, 28);
+            rBtnConjs2.Size = new Size(40, 28);
             rBtnConjs2.TabIndex = 43;
             rBtnConjs2.TabStop = true;
             rBtnConjs2.Text = "2";
@@ -109,7 +109,7 @@
             // lblConjC
             // 
             lblConjC.AutoSize = true;
-            lblConjC.Location = new Point(53, 513);
+            lblConjC.Location = new Point(7, 457);
             lblConjC.Margin = new Padding(4, 0, 4, 0);
             lblConjC.Name = "lblConjC";
             lblConjC.Size = new Size(24, 24);
@@ -119,7 +119,7 @@
             // lblConjB
             // 
             lblConjB.AutoSize = true;
-            lblConjB.Location = new Point(53, 458);
+            lblConjB.Location = new Point(7, 402);
             lblConjB.Margin = new Padding(4, 0, 4, 0);
             lblConjB.Name = "lblConjB";
             lblConjB.Size = new Size(24, 24);
@@ -129,7 +129,7 @@
             // lblConjA
             // 
             lblConjA.AutoSize = true;
-            lblConjA.Location = new Point(53, 407);
+            lblConjA.Location = new Point(7, 351);
             lblConjA.Margin = new Padding(4, 0, 4, 0);
             lblConjA.Name = "lblConjA";
             lblConjA.Size = new Size(24, 24);
@@ -138,7 +138,7 @@
             // 
             // txtConjC
             // 
-            txtConjC.Location = new Point(85, 510);
+            txtConjC.Location = new Point(39, 454);
             txtConjC.Margin = new Padding(4, 5, 4, 5);
             txtConjC.Name = "txtConjC";
             txtConjC.Size = new Size(209, 31);
@@ -146,7 +146,7 @@
             // 
             // txtConjB
             // 
-            txtConjB.Location = new Point(85, 455);
+            txtConjB.Location = new Point(39, 399);
             txtConjB.Margin = new Padding(4, 5, 4, 5);
             txtConjB.Name = "txtConjB";
             txtConjB.Size = new Size(210, 31);
@@ -154,7 +154,7 @@
             // 
             // txtConjA
             // 
-            txtConjA.Location = new Point(85, 400);
+            txtConjA.Location = new Point(39, 344);
             txtConjA.Margin = new Padding(4, 5, 4, 5);
             txtConjA.Name = "txtConjA";
             txtConjA.Size = new Size(210, 31);
@@ -162,7 +162,7 @@
             // 
             // txtOper
             // 
-            txtOper.Location = new Point(362, 345);
+            txtOper.Location = new Point(316, 289);
             txtOper.Margin = new Padding(4, 5, 4, 5);
             txtOper.Name = "txtOper";
             txtOper.Size = new Size(181, 31);
@@ -171,7 +171,7 @@
             // lblOperar
             // 
             lblOperar.AutoSize = true;
-            lblOperar.Location = new Point(410, 316);
+            lblOperar.Location = new Point(364, 260);
             lblOperar.Margin = new Padding(4, 0, 4, 0);
             lblOperar.Name = "lblOperar";
             lblOperar.Size = new Size(90, 24);
@@ -182,7 +182,7 @@
             // 
             BtnCchar.BackColor = Color.FromArgb(217, 217, 217);
             BtnCchar.Enabled = false;
-            BtnCchar.Location = new Point(465, 396);
+            BtnCchar.Location = new Point(419, 340);
             BtnCchar.Margin = new Padding(4, 5, 4, 5);
             BtnCchar.Name = "BtnCchar";
             BtnCchar.Size = new Size(35, 35);
@@ -193,7 +193,7 @@
             // BtnBchar
             // 
             BtnBchar.BackColor = Color.FromArgb(217, 217, 217);
-            BtnBchar.Location = new Point(405, 396);
+            BtnBchar.Location = new Point(359, 340);
             BtnBchar.Margin = new Padding(4, 5, 4, 5);
             BtnBchar.Name = "BtnBchar";
             BtnBchar.Size = new Size(35, 35);
@@ -204,7 +204,7 @@
             // BtnUchar
             // 
             BtnUchar.BackColor = Color.FromArgb(217, 217, 217);
-            BtnUchar.Location = new Point(508, 396);
+            BtnUchar.Location = new Point(462, 340);
             BtnUchar.Margin = new Padding(4, 5, 4, 5);
             BtnUchar.Name = "BtnUchar";
             BtnUchar.Size = new Size(35, 35);
@@ -215,7 +215,7 @@
             // BtnAchart
             // 
             BtnAchart.BackColor = Color.FromArgb(217, 217, 217);
-            BtnAchart.Location = new Point(362, 396);
+            BtnAchart.Location = new Point(316, 340);
             BtnAchart.Margin = new Padding(4, 5, 4, 5);
             BtnAchart.Name = "BtnAchart";
             BtnAchart.Size = new Size(35, 35);
@@ -226,7 +226,7 @@
             // BtnCalcular
             // 
             BtnCalcular.BackColor = Color.FromArgb(217, 217, 217);
-            BtnCalcular.Location = new Point(362, 521);
+            BtnCalcular.Location = new Point(316, 465);
             BtnCalcular.Margin = new Padding(4, 5, 4, 5);
             BtnCalcular.Name = "BtnCalcular";
             BtnCalcular.Size = new Size(181, 34);
@@ -237,7 +237,7 @@
             // BtnVacioChart
             // 
             BtnVacioChart.BackColor = Color.FromArgb(217, 217, 217);
-            BtnVacioChart.Location = new Point(488, 481);
+            BtnVacioChart.Location = new Point(442, 425);
             BtnVacioChart.Margin = new Padding(4, 5, 4, 5);
             BtnVacioChart.Name = "BtnVacioChart";
             BtnVacioChart.Size = new Size(55, 30);
@@ -248,7 +248,7 @@
             // BtnCompleChart
             // 
             BtnCompleChart.BackColor = Color.FromArgb(217, 217, 217);
-            BtnCompleChart.Location = new Point(425, 481);
+            BtnCompleChart.Location = new Point(379, 425);
             BtnCompleChart.Margin = new Padding(4, 5, 4, 5);
             BtnCompleChart.Name = "BtnCompleChart";
             BtnCompleChart.Size = new Size(55, 30);
@@ -259,7 +259,7 @@
             // BtnDifSimeChart
             // 
             BtnDifSimeChart.BackColor = Color.FromArgb(217, 217, 217);
-            BtnDifSimeChart.Location = new Point(362, 481);
+            BtnDifSimeChart.Location = new Point(316, 425);
             BtnDifSimeChart.Margin = new Padding(4, 5, 4, 5);
             BtnDifSimeChart.Name = "BtnDifSimeChart";
             BtnDifSimeChart.Size = new Size(55, 30);
@@ -270,7 +270,7 @@
             // BtnDiferenciaChart
             // 
             BtnDiferenciaChart.BackColor = Color.FromArgb(217, 217, 217);
-            BtnDiferenciaChart.Location = new Point(488, 441);
+            BtnDiferenciaChart.Location = new Point(442, 385);
             BtnDiferenciaChart.Margin = new Padding(4, 5, 4, 5);
             BtnDiferenciaChart.Name = "BtnDiferenciaChart";
             BtnDiferenciaChart.Size = new Size(55, 30);
@@ -281,7 +281,7 @@
             // BtnUnionChart
             // 
             BtnUnionChart.BackColor = Color.FromArgb(217, 217, 217);
-            BtnUnionChart.Location = new Point(425, 441);
+            BtnUnionChart.Location = new Point(379, 385);
             BtnUnionChart.Margin = new Padding(4, 5, 4, 5);
             BtnUnionChart.Name = "BtnUnionChart";
             BtnUnionChart.Size = new Size(55, 30);
@@ -292,7 +292,7 @@
             // BtnInterChart
             // 
             BtnInterChart.BackColor = Color.FromArgb(217, 217, 217);
-            BtnInterChart.Location = new Point(362, 441);
+            BtnInterChart.Location = new Point(316, 385);
             BtnInterChart.Margin = new Padding(4, 5, 4, 5);
             BtnInterChart.Name = "BtnInterChart";
             BtnInterChart.Size = new Size(55, 30);
@@ -304,35 +304,37 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(598, 569);
-            Controls.Add(lblRes);
+            BackColor = SystemColors.Control;
+            ClientSize = new Size(505, 522);
             Controls.Add(textBox1);
-            Controls.Add(lblConj);
-            Controls.Add(radioButton2);
-            Controls.Add(rBtnConjs2);
-            Controls.Add(lblConjC);
-            Controls.Add(lblConjB);
-            Controls.Add(lblConjA);
-            Controls.Add(txtConjC);
-            Controls.Add(txtConjB);
-            Controls.Add(txtConjA);
-            Controls.Add(txtOper);
-            Controls.Add(lblOperar);
-            Controls.Add(BtnCchar);
-            Controls.Add(BtnBchar);
-            Controls.Add(BtnUchar);
-            Controls.Add(BtnAchart);
-            Controls.Add(BtnCalcular);
-            Controls.Add(BtnVacioChart);
-            Controls.Add(BtnCompleChart);
-            Controls.Add(BtnDifSimeChart);
-            Controls.Add(BtnDiferenciaChart);
-            Controls.Add(BtnUnionChart);
+            Controls.Add(lblRes);
             Controls.Add(BtnInterChart);
+            Controls.Add(lblOperar);
+            Controls.Add(BtnUnionChart);
+            Controls.Add(txtOper);
+            Controls.Add(lblConj);
+            Controls.Add(BtnCchar);
+            Controls.Add(BtnDiferenciaChart);
+            Controls.Add(txtConjA);
+            Controls.Add(radioButton2);
+            Controls.Add(BtnBchar);
+            Controls.Add(BtnDifSimeChart);
+            Controls.Add(txtConjB);
+            Controls.Add(rBtnConjs2);
+            Controls.Add(BtnUchar);
+            Controls.Add(BtnCompleChart);
+            Controls.Add(txtConjC);
+            Controls.Add(lblConjC);
+            Controls.Add(BtnAchart);
+            Controls.Add(BtnVacioChart);
+            Controls.Add(lblConjA);
+            Controls.Add(lblConjB);
+            Controls.Add(BtnCalcular);
             Font = new Font("Noto Sans Math", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 5, 4, 5);
             Name = "OpConjuntos";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "OpConjuntos";
             ResumeLayout(false);
             PerformLayout();
