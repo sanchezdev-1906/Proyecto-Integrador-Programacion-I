@@ -8,15 +8,15 @@ namespace Proyecto_Integrador_Programacion_I
 {
     partial class Calculadora
     {
-        
-        Dictionary<string, HashSet<int>> ConjuntosElementos = new Dictionary<string, HashSet<int>>();
+        static Dictionary<string, HashSet<int>> ConjuntosElementos = new Dictionary<string, HashSet<int>>();
+
         /// <summary>
         /// Analiza una cadena, extrae las expresiones y calcula las operaciones
         /// </summary>
         /// <param name="cadena"></param>
         /// <returns></returns>
         /// <exception cref="DuplicatedSymbolsException"></exception>
-        HashSet<int> CalcularConjuntos(string cadena)
+        static HashSet<int> CalcularConjuntos(string cadena)
         {
             cadena = cadena.Replace(" ", "");
                 Duplicados(cadena);
@@ -55,7 +55,7 @@ namespace Proyecto_Integrador_Programacion_I
         /// <summary>
         ///  Lanza una excepcion cuando existen dos simbolos iguales que no son parentesis
         /// </summary>
-        void Duplicados(string cadena)
+        static void Duplicados(string cadena)
         {
             for (int i = 0; i < cadena.Length - 1; i++)
             {
@@ -69,7 +69,7 @@ namespace Proyecto_Integrador_Programacion_I
         /// <summary>
         ///  Realiza las operaciones de conjuntos entre A y B segun el operador
         /// </summary>
-        HashSet<int> Operar(HashSet<int> A, HashSet<int> B, char operador)
+        static HashSet<int> Operar(HashSet<int> A, HashSet<int> B, char operador)
         {
             switch (operador)
             {
@@ -86,7 +86,7 @@ namespace Proyecto_Integrador_Programacion_I
         ///  Ej:
         /// (AUB)-CU(A-C) => (AUB), C, (A-C)
         /// </summary>
-        string[] ExtraerExpresiones(string cadena)
+        static string[] ExtraerExpresiones(string cadena)
         {
             List<string> expressions = new List<string>();
             while (cadena.Length != 0)
@@ -122,7 +122,7 @@ namespace Proyecto_Integrador_Programacion_I
         /// <summary>
         ///  Dado el indice de un parentesis de apertura, busca el parentesis de cierre y devuelve su indice.
         /// </summary>
-        int EncontrarUltimoParentesis(string cadena, int inicioParentesis)
+        static int EncontrarUltimoParentesis(string cadena, int inicioParentesis)
         {
             int aux = 0;
             int index;
