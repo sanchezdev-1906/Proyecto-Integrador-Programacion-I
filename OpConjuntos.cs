@@ -94,7 +94,7 @@ namespace Proyecto_Integrador_Programacion_I
 
         private void BtnDiferenciaChart_Click(object sender, EventArgs e)
         {
-            txtOper.Text += "-";
+            txtOper.Text += "−";
         }
 
         private void BtnDifSimeChart_Click(object sender, EventArgs e)

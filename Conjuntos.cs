@@ -70,6 +70,7 @@ namespace Proyecto_Integrador_Programacion_I
             if (cadena[0] == '(' && EncontrarUltimoParentesis(cadena, inicioParentesis) == cadena.Length - 1)
                 cadena = cadena.Substring(1, cadena.Length - 2);
             if (cadena.Length == 1) return ConjuntosElementos[cadena];
+            if (cadena.Length == 2) return Operar(ConjuntosElementos["U"], ConjuntosElementos["A"], 'ᶜ');
             else
             {
                 List<HashSet<int>> Conjuntos = new List<HashSet<int>>();
@@ -115,10 +116,11 @@ namespace Proyecto_Integrador_Programacion_I
         {
             switch (operador)
             {
-                case 'U': return Enumerable.Union(A, B).ToHashSet();
-                case 'I': return Enumerable.Intersect(A, B).ToHashSet();
-                case 'D': return Enumerable.Except(A, B).ToHashSet();
-                case 'S': return Enumerable.Except(Enumerable.Union(A, B), Enumerable.Intersect(A, B)).ToHashSet();
+                case '∪': return Enumerable.Union(A, B).ToHashSet();
+                case '∩': return Enumerable.Intersect(A, B).ToHashSet();
+                case 'ᶜ':
+                case '−': return Enumerable.Except(A, B).ToHashSet();
+                case '∆': return Enumerable.Except(Enumerable.Union(A, B), Enumerable.Intersect(A, B)).ToHashSet();
                 default: return Enumerable.Union(A, B).ToHashSet();
             }
         }
@@ -133,7 +135,7 @@ namespace Proyecto_Integrador_Programacion_I
             List<string> expressions = new List<string>();
             while (cadena.Length != 0)
             {
-                int ia = cadena.IndexOfAny(new char[] { 'U', 'I', 'D', 'S' });
+                int ia = cadena.IndexOfAny(new char[] { '∪', '∩', '−', '∆' });
                 if (ia == 0)
                 {
                     cadena = cadena.Remove(0, 1);
