@@ -90,8 +90,8 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(659, 481);
-            Controls.Add(pnlPrincipal);
             Controls.Add(panel1);
+            Controls.Add(pnlPrincipal);
             MinimumSize = new Size(675, 520);
             Name = "Calculadora";
             StartPosition = FormStartPosition.CenterScreen;
