@@ -164,52 +164,52 @@ namespace Proyecto_Integrador_Programacion_I
 
         private void BtnInterChart_Click(object sender, EventArgs e)
         {
-            txtOper.Text += "∩";
+            txtOper.SelectedText += "∩";
         }
 
         private void BtnUnionChart_Click(object sender, EventArgs e)
         {
-            txtOper.Text += "∪";
+            txtOper.SelectedText += "∪";
         }
 
         private void BtnDiferenciaChart_Click(object sender, EventArgs e)
         {
-            txtOper.Text += "−";
+            txtOper.SelectedText += "−";
         }
 
         private void BtnDifSimeChart_Click(object sender, EventArgs e)
         {
-            txtOper.Text += "∆";
+            txtOper.SelectedText += "∆";
         }
 
         private void BtnCompleChart_Click(object sender, EventArgs e)
         {
-            txtOper.Text += "ᶜ";
+            txtOper.SelectedText += "ᶜ";
         }
 
         private void BtnVacioChart_Click(object sender, EventArgs e)
         {
-            txtOper.Text += "∅";
+            txtOper.SelectedText += "∅";
         }
 
         private void BtnAchart_Click(object sender, EventArgs e)
-        {
-            txtOper.Text += "A";
+        {   
+            txtOper.SelectedText += "A";
         }
 
         private void BtnBchar_Click(object sender, EventArgs e)
         {
-            txtOper.Text += "B";
+            txtOper.SelectedText += "B";
         }
 
         private void BtnCchar_Click(object sender, EventArgs e)
         {
-            txtOper.Text += "C";
+            txtOper.SelectedText += "C";
         }
 
         private void BtnUchar_Click(object sender, EventArgs e)
         {
-            txtOper.Text += "U";
+            txtOper.SelectedText += "U";
         }
     }
 }
