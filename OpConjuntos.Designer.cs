@@ -91,7 +91,7 @@
             rBtnConjs3.Location = new Point(174, 132);
             rBtnConjs3.Margin = new Padding(4, 5, 4, 5);
             rBtnConjs3.Name = "rBtnConjs3";
-            rBtnConjs3.Size = new Size(37, 28);
+            rBtnConjs3.Size = new Size(40, 28);
             rBtnConjs3.TabIndex = 44;
             rBtnConjs3.TabStop = true;
             rBtnConjs3.Text = "3";
@@ -104,7 +104,7 @@
             rBtnConjs2.Location = new Point(107, 132);
             rBtnConjs2.Margin = new Padding(4, 5, 4, 5);
             rBtnConjs2.Name = "rBtnConjs2";
-            rBtnConjs2.Size = new Size(37, 28);
+            rBtnConjs2.Size = new Size(40, 28);
             rBtnConjs2.TabIndex = 43;
             rBtnConjs2.TabStop = true;
             rBtnConjs2.Text = "2";
@@ -344,10 +344,10 @@
             PnlPrincipal.Controls.Add(txtConjB);
             PnlPrincipal.Controls.Add(BtnBchar);
             PnlPrincipal.Controls.Add(BtnDifSimeChart);
-            PnlPrincipal.Dock = DockStyle.Top;
-            PnlPrincipal.Location = new Point(0, 246);
+            PnlPrincipal.Dock = DockStyle.Fill;
+            PnlPrincipal.Location = new Point(0, 250);
             PnlPrincipal.Name = "PnlPrincipal";
-            PnlPrincipal.Size = new Size(564, 343);
+            PnlPrincipal.Size = new Size(564, 351);
             PnlPrincipal.TabIndex = 49;
             // 
             // PnlGraficos
@@ -355,8 +355,9 @@
             PnlGraficos.Dock = DockStyle.Top;
             PnlGraficos.Location = new Point(0, 0);
             PnlGraficos.Name = "PnlGraficos";
-            PnlGraficos.Size = new Size(564, 246);
+            PnlGraficos.Size = new Size(564, 250);
             PnlGraficos.TabIndex = 48;
+            PnlGraficos.Paint += PnlGraficos_Paint;
             // 
             // OpConjuntos
             // 

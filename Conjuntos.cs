@@ -9,12 +9,12 @@ namespace Proyecto_Integrador_Programacion_I
 {
     public static class Conjuntos
     {
-        public static Dictionary<string, HashSet<int>> ConjuntosElementos = new Dictionary<string, HashSet<int>>();
+        public static Dictionary<string, HashSet<string>> ConjuntosElementos = new Dictionary<string, HashSet<string>>();
 
-        static public HashSet<int> CrearConjunto(string expresion)
+        static public HashSet<string> CrearConjunto(string expresion)
         {
             int inicio, fin;
-            HashSet<int> conjunto = new HashSet<int>();
+            HashSet<string> conjunto = new HashSet<string>();
             if (Regex.Match(expresion, @"^[(\[]-?\d+,-?\d+[)\]]$").Success)
             {
                 int[] lim = Array.ConvertAll(
@@ -31,23 +31,23 @@ namespace Proyecto_Integrador_Programacion_I
 
                 for (int i = inicio; i <= fin; i++)
                 {
-                    conjunto.Add(i);
+                    conjunto.Add(i.ToString());
                 }
 
             }
             else if (Regex.Match(expresion, @"^-?\d+(?:,-?\d+)*$").Success)
             {
-                int[] lim = Array.ConvertAll(expresion.Split(","), int.Parse);
-                conjunto = new HashSet<int>(lim);
+                string[] lim = expresion.Split(",");
+                conjunto = new HashSet<string>(lim);
             }
+            // corregir
             else if (Regex.Match(expresion, @"^-?\d+(?:<|≤)x+(?:<|≤)+-?\d+$").Success)
             {
-                int[] lim = Array.ConvertAll(expresion.Split(), int.Parse);
-                conjunto = new HashSet<int>(lim);
+                throw new Exception("Expresion Invalida");
             }
             else
             {
-                throw new Exception("Exprecion Invalida");
+                throw new Exception("Expresion Invalida");
             }
             return conjunto;
         }
@@ -58,7 +58,7 @@ namespace Proyecto_Integrador_Programacion_I
         /// <param name="cadena"></param>
         /// <returns></returns>
         /// <exception cref="DuplicatedSymbolsException"></exception>
-        public static HashSet<int> CalcularConjuntos(string cadena)
+        public static HashSet<string> CalcularConjuntos(string cadena)
         {
             cadena = cadena.Replace(" ", "");
             Duplicados(cadena);
@@ -73,7 +73,7 @@ namespace Proyecto_Integrador_Programacion_I
             if (cadena.Length == 2) return Operar(ConjuntosElementos["U"], ConjuntosElementos["A"], 'ᶜ');
             else
             {
-                List<HashSet<int>> Conjuntos = new List<HashSet<int>>();
+                List<HashSet<string>> Conjuntos = new List<HashSet<string>>();
                 List<char> Operadores = new List<char>();
                 string[] expressions = ExtraerExpresiones(cadena);
                 foreach (var expression in expressions)
@@ -113,7 +113,7 @@ namespace Proyecto_Integrador_Programacion_I
         /// <summary>
         ///  Realiza las operaciones de conjuntos entre A y B segun el operador
         /// </summary>
-        static HashSet<int> Operar(HashSet<int> A, HashSet<int> B, char operador)
+        static HashSet<string> Operar(HashSet<string> A, HashSet<string> B, char operador)
         {
             switch (operador)
             {
@@ -121,7 +121,7 @@ namespace Proyecto_Integrador_Programacion_I
                 case '∩': return Enumerable.Intersect(A, B).ToHashSet();
                 case 'ᶜ':
                 case '−': return Enumerable.Except(A, B).ToHashSet();
-                case '∆': return Enumerable.Except(Enumerable.Union(A, B), Enumerable.Intersect(A, B)).ToHashSet();
+                case '∆': return A.Union(B).Except(A.Intersect(B)).ToHashSet();
                 default: return Enumerable.Union(A, B).ToHashSet();
             }
         }
@@ -188,12 +188,12 @@ namespace Proyecto_Integrador_Programacion_I
             }
             return index == cadena.Length ? -1 : index;
         }
-        static string ProductoCarteciano(HashSet<int> A, HashSet<int> B)
+        static string ProductoCartesiano(HashSet<string> A, HashSet<string> B)
         {
             string producto = "{";
-            foreach (int i in A)
+            foreach (string i in A)
             {
-                foreach (int j in B)
+                foreach (string j in B)
                 {
                     producto += $"({i},{j}) ";
                 }

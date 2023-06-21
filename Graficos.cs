@@ -74,7 +74,7 @@ namespace Proyecto_Integrador_Programacion_I
         /// </summary>
         static Region Operar(Region A, Region B, char operador)
         {
-            Region regionA = B.Clone();
+            Region regionA = A.Clone();
             switch (operador)
             {
                 case '∪':
