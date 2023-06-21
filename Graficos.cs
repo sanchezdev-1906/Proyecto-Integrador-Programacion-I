@@ -29,7 +29,7 @@ namespace Proyecto_Integrador_Programacion_I
             if (cadena[0] == '(' && EncontrarUltimoParentesis(cadena, inicioParentesis) == cadena.Length - 1)
                 cadena = cadena.Substring(1, cadena.Length - 2);
             if (cadena.Length == 1) return ConjuntosElementos[cadena];
-            if (cadena.Length == 2) return Operar(ConjuntosElementos[cadena[0].ToString()], ConjuntosElementos["U"], 'ᶜ');
+            if (cadena.Length == 2) return Operar(ConjuntosElementos["U"], ConjuntosElementos[cadena[0].ToString()], 'ᶜ');
             else
             {
                 List<Region> Conjuntos = new List<Region>();
@@ -76,23 +76,21 @@ namespace Proyecto_Integrador_Programacion_I
             Region regionA = B.Clone();
             switch (operador)
             {
-                case 'U':
+                case '∪':
                     regionA.Union(B);
                     break;
-                case 'I':
+                case '∩':
                     regionA.Intersect(B);
                     break;
-                case 'D':
+                case '−':
+                case 'ᶜ':
                     regionA.Exclude(B);
                     break;
-                case 'S':
+                case '∆':
                     Region aux = A.Clone();
                     aux.Intersect(B);
                     regionA.Union(B);
                     regionA.Exclude(aux);
-                    break;
-                case 'ᶜ':
-                    regionA.Exclude(A);
                     break;
             }
             return regionA;
@@ -108,7 +106,7 @@ namespace Proyecto_Integrador_Programacion_I
             List<string> expressions = new List<string>();
             while (cadena.Length != 0)
             {
-                int ia = cadena.IndexOfAny(new char[] { 'U', 'I', 'D', 'S' });
+                int ia = cadena.IndexOfAny(new char[] { '∪', '∩', '−', '∆' });
                 if (ia == 0)
                 {
                     cadena = cadena.Remove(0, 1);
