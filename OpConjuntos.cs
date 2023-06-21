@@ -20,7 +20,54 @@ namespace Proyecto_Integrador_Programacion_I
 
         private void BtnCalcular_Click(object sender, EventArgs e)
         {
-            
+            HashSet<int> A;
+            try
+            {
+                A = Conjuntos.CrearConjunto(txtConjA.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error en la exprecion\n(Conjunto A)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            HashSet<int> B;
+            try
+            {
+                B = Conjuntos.CrearConjunto(txtConjB.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error en la exprecion\n(Conjunto B)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            //Conjuntos.ConjuntosElementos.Add("B", B);
+            HashSet<int> C = new HashSet<int>();
+            if (rBtnConjs3.Checked == true)
+            {
+                try
+                {
+                    C = Conjuntos.CrearConjunto(txtConjC.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error en la exprecion\n(Conjunto C)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            if (Conjuntos.ConjuntosElementos.Count < 1)
+            {
+                Conjuntos.ConjuntosElementos.Add("A", A);
+                Conjuntos.ConjuntosElementos.Add("B", B);
+                Conjuntos.ConjuntosElementos.Add("C", C);
+            }
+            else
+            {
+                Conjuntos.ConjuntosElementos["A"] = A;
+                Conjuntos.ConjuntosElementos["B"] = B;
+                Conjuntos.ConjuntosElementos["C"] = C;
+            }
+            HashSet<int> Resultado = Conjuntos.CalcularConjuntos(txtOper.Text);
+            txtResultado.Text = string.Join(",", Resultado.Order());
         }
 
         private void rBtnConjs3_CheckedChanged(object sender, EventArgs e)
