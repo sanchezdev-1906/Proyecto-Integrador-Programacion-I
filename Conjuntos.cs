@@ -91,6 +91,7 @@ namespace Proyecto_Integrador_Programacion_I
                 {
                     Conjuntos[0] = Operar(Conjuntos[0], Conjuntos[1], Operadores[0]);
                     Conjuntos.RemoveAt(1);
+                    Operadores.RemoveAt(0);
                 }
                 return Conjuntos[0];
             }
