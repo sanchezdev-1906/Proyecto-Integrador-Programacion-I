@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -85,6 +86,11 @@ namespace Proyecto_Integrador_Programacion_I
 
         private void BtnCalcular_Click(object sender, EventArgs e)
         {
+            if(Regex.Match(txtOper.Text, @"^P\([ABC]\)").Success)
+            {
+                return;
+            }
+            
             PnlGraficos.Invalidate();
             HashSet<string> A;
 
@@ -121,6 +127,7 @@ namespace Proyecto_Integrador_Programacion_I
                     return;
                 }
             }
+            
             if (Conjuntos.ConjuntosElementos.Count < 1)
             {
                 Conjuntos.ConjuntosElementos.Add("A", A);
@@ -132,6 +139,13 @@ namespace Proyecto_Integrador_Programacion_I
                 Conjuntos.ConjuntosElementos["A"] = A;
                 Conjuntos.ConjuntosElementos["B"] = B;
                 Conjuntos.ConjuntosElementos["C"] = C;
+            }
+            
+            if (Regex.Match(txtOper.Text, @"^[ABC]x[ABC]").Success)
+            {
+                string[] aux = txtOper.Text.Split('x');
+                txtResultado.Text = Conjuntos.ProductoCartesiano(aux[0], aux[1]);
+                return;
             }
             string[] ConjuntoResultante = Conjuntos.CalcularConjuntos(txtOper.Text).ToArray();
             int[] Resultados;
