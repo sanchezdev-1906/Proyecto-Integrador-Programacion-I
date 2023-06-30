@@ -198,12 +198,12 @@ namespace Proyecto_Integrador_Programacion_I
             }
             return index == cadena.Length ? -1 : index;
         }
-        static public string ProductoCartesiano(HashSet<string> A, HashSet<string> B)
+        public static string ProductoCartesiano(string A, string B)
         {
             string producto = "{";
-            foreach (string i in A)
+            foreach (string i in ConjuntosElementos[A])
             {
-                foreach (string j in B)
+                foreach (string j in ConjuntosElementos[B])
                 {
                     producto += $"({i},{j}) ";
                 }
