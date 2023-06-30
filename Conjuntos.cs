@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -35,19 +36,18 @@ namespace Proyecto_Integrador_Programacion_I
                 }
 
             }
-            else if (Regex.Match(expresion, @"^-?\d+(?:,-?\d+)*$").Success)
+            else if (Regex.Match(expresion, @"^[\w-\d]+(?:,[\w-\d]+)*$").Success)
             {
                 string[] lim = expresion.Split(",");
                 conjunto = new HashSet<string>(lim);
             }
-            // corregir
-            else if (Regex.Match(expresion, @"^-?\d+(?:<|≤)x+(?:<|≤)+-?\d+$").Success)
+            else if (expresion == "")
             {
-                throw new Exception("Expresion Invalida");
+                conjunto = new HashSet<string>();
             }
             else
             {
-                throw new Exception("Expresion Invalida");
+                throw new Exception("Sintaxis invalida");
             }
             return conjunto;
         }
@@ -70,7 +70,9 @@ namespace Proyecto_Integrador_Programacion_I
             if (cadena[0] == '(' && EncontrarUltimoParentesis(cadena, inicioParentesis) == cadena.Length - 1)
                 cadena = cadena.Substring(1, cadena.Length - 2);
             if (cadena.Length == 1) return ConjuntosElementos[cadena];
-            if (cadena.Length == 2) return Operar(ConjuntosElementos["U"], ConjuntosElementos["A"], 'ᶜ');
+            if (cadena.Length == 2) return Operar(ConjuntosElementos["U"], ConjuntosElementos[cadena[0].ToString()], 'ᶜ');
+            if (cadena[0] == '(' && EncontrarUltimoParentesis(cadena, inicioParentesis) == cadena.Length - 2 && cadena[cadena.Length - 1] == 'ᶜ')
+                return Operar(ConjuntosElementos["U"], CalcularConjuntos(cadena.Substring(0, cadena.Length - 2)), 'ᶜ');
             else
             {
                 List<HashSet<string>> Conjuntos = new List<HashSet<string>>();
@@ -145,8 +147,16 @@ namespace Proyecto_Integrador_Programacion_I
 
                 if (cadena[0] == '(')
                 {
-                    expressions.Add(cadena.Substring(0, EncontrarUltimoParentesis(cadena, 0) + 1));
-                    cadena = cadena.Remove(0, EncontrarUltimoParentesis(cadena, 0) + 1);
+                    if (cadena[EncontrarUltimoParentesis(cadena, 0)+1] == 'ᶜ')
+                    {
+                        expressions.Add(cadena.Substring(0, EncontrarUltimoParentesis(cadena, 0) + 2));
+                        cadena = cadena.Remove(0, EncontrarUltimoParentesis(cadena, 0) + 2);
+                    }
+                    else
+                    {
+                        expressions.Add(cadena.Substring(0, EncontrarUltimoParentesis(cadena, 0) + 1));
+                        cadena = cadena.Remove(0, EncontrarUltimoParentesis(cadena, 0) + 1);
+                    }
                 }
                 else
                 {
@@ -188,7 +198,7 @@ namespace Proyecto_Integrador_Programacion_I
             }
             return index == cadena.Length ? -1 : index;
         }
-        static string ProductoCartesiano(HashSet<string> A, HashSet<string> B)
+        static public string ProductoCartesiano(HashSet<string> A, HashSet<string> B)
         {
             string producto = "{";
             foreach (string i in A)

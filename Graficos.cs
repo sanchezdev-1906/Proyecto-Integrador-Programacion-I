@@ -116,8 +116,16 @@ namespace Proyecto_Integrador_Programacion_I
 
                 if (cadena[0] == '(')
                 {
-                    expressions.Add(cadena.Substring(0, EncontrarUltimoParentesis(cadena, 0) + 1));
-                    cadena = cadena.Remove(0, EncontrarUltimoParentesis(cadena, 0) + 1);
+                    if (cadena[EncontrarUltimoParentesis(cadena, 0) + 1] == 'ᶜ')
+                    {
+                        expressions.Add(cadena.Substring(0, EncontrarUltimoParentesis(cadena, 0) + 2));
+                        cadena = cadena.Remove(0, EncontrarUltimoParentesis(cadena, 0) + 2);
+                    }
+                    else
+                    {
+                        expressions.Add(cadena.Substring(0, EncontrarUltimoParentesis(cadena, 0) + 1));
+                        cadena = cadena.Remove(0, EncontrarUltimoParentesis(cadena, 0) + 1);
+                    }
                 }
                 else
                 {
