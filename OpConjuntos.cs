@@ -5,7 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -22,19 +24,22 @@ namespace Proyecto_Integrador_Programacion_I
         {
             int centroX = PnlGraficos.Width / 2;
 
+            int altura;
             if (rBtnConjs3.Checked == true)
             {
-                PnlGraficos.Height = 451;
+                PnlGraficos.Height = 500;
+                altura = PnlGraficos.Height - 50;
             }
             else
             {
-                PnlGraficos.Height = 301;
+                PnlGraficos.Height = 350;
+                altura = PnlGraficos.Height - 50;
             }
 
-            Rectangle rectU = new Rectangle(centroX - 250, 0, 500, PnlGraficos.Height);
+            Rectangle rectU = new Rectangle(centroX - 250, 0, 500, altura);
             Region U = new Region(rectU);
             Pen penU = new Pen(Color.Black);
-            e.Graphics.DrawRectangle(penU,rectU);
+            e.Graphics.DrawRectangle(penU, rectU);
 
             Rectangle rectA = new Rectangle(centroX - 100 - 50, 25, 200, 200);
             GraphicsPath circleA = new GraphicsPath();
@@ -87,39 +92,35 @@ namespace Proyecto_Integrador_Programacion_I
         {
             PnlGraficos.Invalidate();
             HashSet<string> A;
+            HashSet<string> B;
+            HashSet<string> C;
 
             try
             {
                 A = Conjuntos.CrearConjunto(txtConjA.Text);
             }
-            catch (Exception)
+            catch (Exception err)
             {
-                MessageBox.Show("Error en la exprecion\n(Conjunto A)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"{err.Message}\nConjunto A", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            HashSet<string> B;
             try
             {
                 B = Conjuntos.CrearConjunto(txtConjB.Text);
             }
-            catch (Exception)
+            catch (Exception err)
             {
-                MessageBox.Show("Error en la exprecion\n(Conjunto B)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"{err.Message}\nConjunto B", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            //Conjuntos.ConjuntosElementos.Add("B", B);
-            HashSet<string> C = new HashSet<string>();
-            if (rBtnConjs3.Checked == true)
+            try
             {
-                try
-                {
-                    C = Conjuntos.CrearConjunto(txtConjC.Text);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Error en la exprecion\n(Conjunto C)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                C = Conjuntos.CrearConjunto(txtConjC.Text);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show($"{err.Message}\nConjunto C", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             if (Conjuntos.ConjuntosElementos.Count < 1)
             {
@@ -133,8 +134,25 @@ namespace Proyecto_Integrador_Programacion_I
                 Conjuntos.ConjuntosElementos["B"] = B;
                 Conjuntos.ConjuntosElementos["C"] = C;
             }
+
+            HashSet<string> U;
+            U = Conjuntos.CalcularConjuntos("A∪B∪C");
+            if (Conjuntos.ConjuntosElementos.Count < 1)
+                Conjuntos.ConjuntosElementos.Add("U", U);
+            else
+                Conjuntos.ConjuntosElementos["U"] = U;
+
             string[] ConjuntoResultante = Conjuntos.CalcularConjuntos(txtOper.Text).ToArray();
             int[] Resultados;
+
+            if (Regex.Match(txtOper.Text, @"^[A-C]x[A-C]$").Success)
+            {
+                string[] conjuntos = txtOper.Text.Split("x");
+                string resultado = Conjuntos.ProductoCartesiano(Conjuntos.ConjuntosElementos[conjuntos[0]], Conjuntos.ConjuntosElementos[conjuntos[1]]);
+                txtResultado.Text = resultado;
+                return;
+            }
+
             if (ConjuntoResultante.Length == 0)
             {
                 txtResultado.Text = "∅";
@@ -152,64 +170,96 @@ namespace Proyecto_Integrador_Programacion_I
 
         private void rBtnConjs3_CheckedChanged(object sender, EventArgs e)
         {
-            lblConjC.Visible = true;
-            txtConjC.Visible = true;
+            if (rBtnConjs3.Checked == true)
+            {
+                lblConjC.Visible = true;
+                txtConjC.Visible = true;
+                BtnCchar.Enabled = true;
+            }
         }
 
         private void rBtnConjs2_CheckedChanged(object sender, EventArgs e)
         {
-            lblConjC.Visible = false;
-            txtConjC.Visible = false;
+            if (rBtnConjs2.Checked == true)
+            {
+                lblConjC.Visible = false;
+                txtConjC.Visible = false;
+                BtnCchar.Enabled = false;
+            }
         }
 
         private void BtnInterChart_Click(object sender, EventArgs e)
         {
-            txtOper.Text += "∩";
+            EscribirTxt("∩");
         }
 
         private void BtnUnionChart_Click(object sender, EventArgs e)
         {
-            txtOper.Text += "∪";
+            EscribirTxt("∪");
         }
 
         private void BtnDiferenciaChart_Click(object sender, EventArgs e)
         {
-            txtOper.Text += "−";
+            EscribirTxt("−");
         }
 
         private void BtnDifSimeChart_Click(object sender, EventArgs e)
         {
-            txtOper.Text += "∆";
+            EscribirTxt("∆");
         }
 
         private void BtnCompleChart_Click(object sender, EventArgs e)
         {
-            txtOper.Text += "ᶜ";
+            EscribirTxt("ᶜ");
         }
 
         private void BtnVacioChart_Click(object sender, EventArgs e)
         {
-            txtOper.Text += "∅";
+            EscribirTxt("∅");
         }
 
         private void BtnAchart_Click(object sender, EventArgs e)
         {
-            txtOper.Text += "A";
+            EscribirTxt("A");
         }
 
         private void BtnBchar_Click(object sender, EventArgs e)
         {
-            txtOper.Text += "B";
+            EscribirTxt("B");
         }
 
         private void BtnCchar_Click(object sender, EventArgs e)
         {
-            txtOper.Text += "C";
+            EscribirTxt("C");
         }
 
         private void BtnUchar_Click(object sender, EventArgs e)
         {
-            txtOper.Text += "U";
+            EscribirTxt("U");
+        }
+        private void EscribirTxt(string caracter)
+        {
+            int cursor = txtOper.SelectionStart;
+            int selectedChars = txtOper.SelectionLength;
+            txtOper.Text = txtOper.Text.Remove(cursor, selectedChars);
+            txtOper.Text = txtOper.Text.Insert(cursor, caracter);
+            txtOper.Focus();
+            txtOper.SelectionStart = cursor + 1;
+            txtOper.SelectionLength = 0;
+        }
+
+        private void lblRes_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtResultado_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void txtOper_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
