@@ -29,16 +29,17 @@ namespace Proyecto_Integrador_Programacion_I
             int altura;
             if (rBtnConjs3.Checked == true)
             {
-                PnlGraficos.Height = 500;
-                altura = PnlGraficos.Height - 50;
+                PnlGraficos.Height = 500 + 50;
+                altura = PnlGraficos.Height + 50;
             }
             else
             {
-                PnlGraficos.Height = 350;
-                altura = PnlGraficos.Height - 50;
+                PnlGraficos.Height = 350 + 50;
+                altura = PnlGraficos.Height + 50;
             }
 
-            Rectangle rectU = new Rectangle(centroX - 250, 0, 500, altura);
+            Rectangle rectU;
+            rectU = new Rectangle(centroX - 250, 0, 500, altura);
             Region U = new Region(rectU);
             Pen penBlack = new Pen(Color.Black, 2);
             e.Graphics.DrawRectangle(penBlack, rectU);
@@ -97,11 +98,11 @@ namespace Proyecto_Integrador_Programacion_I
         }
         private void BtnCalcular_Click(object sender, EventArgs e)
         {
-            if(Regex.Match(txtOper.Text, @"^P\([ABC]\)").Success)
+            if (Regex.Match(txtOper.Text, @"^P\([ABC]\)").Success)
             {
                 return;
             }
-            
+
             PnlGraficos.Invalidate();
             if (txtOper.Text == "") return;
             HashSet<string> A;
@@ -165,7 +166,7 @@ namespace Proyecto_Integrador_Programacion_I
 
             string[] ConjuntoResultante;
             int[] Resultados;
-            
+
             try
             {
                 ConjuntoResultante = Conjuntos.CalcularConjuntos(txtOper.Text).ToArray();

@@ -46,7 +46,6 @@
             BtnUchar = new Button();
             BtnAchart = new Button();
             BtnCalcular = new Button();
-            BtnVacioChart = new Button();
             BtnCompleChart = new Button();
             BtnDifSimeChart = new Button();
             BtnDiferenciaChart = new Button();
@@ -189,10 +188,10 @@
             // 
             BtnCchar.BackColor = Color.FromArgb(217, 217, 217);
             BtnCchar.Enabled = false;
-            BtnCchar.Location = new Point(431, 184);
+            BtnCchar.Location = new Point(468, 184);
             BtnCchar.Margin = new Padding(4, 5, 4, 5);
             BtnCchar.Name = "BtnCchar";
-            BtnCchar.Size = new Size(49, 35);
+            BtnCchar.Size = new Size(55, 35);
             BtnCchar.TabIndex = 34;
             BtnCchar.Text = "C";
             BtnCchar.UseVisualStyleBackColor = false;
@@ -201,10 +200,10 @@
             // BtnBchar
             // 
             BtnBchar.BackColor = Color.FromArgb(217, 217, 217);
-            BtnBchar.Location = new Point(383, 184);
+            BtnBchar.Location = new Point(405, 184);
             BtnBchar.Margin = new Padding(4, 5, 4, 5);
             BtnBchar.Name = "BtnBchar";
-            BtnBchar.Size = new Size(47, 35);
+            BtnBchar.Size = new Size(55, 35);
             BtnBchar.TabIndex = 33;
             BtnBchar.Text = "B";
             BtnBchar.UseVisualStyleBackColor = false;
@@ -213,10 +212,10 @@
             // BtnUchar
             // 
             BtnUchar.BackColor = Color.FromArgb(217, 217, 217);
-            BtnUchar.Location = new Point(481, 184);
+            BtnUchar.Location = new Point(468, 251);
             BtnUchar.Margin = new Padding(4, 5, 4, 5);
             BtnUchar.Name = "BtnUchar";
-            BtnUchar.Size = new Size(44, 35);
+            BtnUchar.Size = new Size(55, 30);
             BtnUchar.TabIndex = 32;
             BtnUchar.Text = "U";
             BtnUchar.UseVisualStyleBackColor = false;
@@ -228,7 +227,7 @@
             BtnAchart.Location = new Point(342, 184);
             BtnAchart.Margin = new Padding(4, 5, 4, 5);
             BtnAchart.Name = "BtnAchart";
-            BtnAchart.Size = new Size(40, 35);
+            BtnAchart.Size = new Size(55, 35);
             BtnAchart.TabIndex = 31;
             BtnAchart.Text = "A";
             BtnAchart.UseVisualStyleBackColor = false;
@@ -245,18 +244,6 @@
             BtnCalcular.Text = "Calcular";
             BtnCalcular.UseVisualStyleBackColor = false;
             BtnCalcular.Click += BtnCalcular_Click;
-            // 
-            // BtnVacioChart
-            // 
-            BtnVacioChart.BackColor = Color.FromArgb(217, 217, 217);
-            BtnVacioChart.Location = new Point(468, 251);
-            BtnVacioChart.Margin = new Padding(4, 5, 4, 5);
-            BtnVacioChart.Name = "BtnVacioChart";
-            BtnVacioChart.Size = new Size(55, 30);
-            BtnVacioChart.TabIndex = 29;
-            BtnVacioChart.Text = "∅";
-            BtnVacioChart.UseVisualStyleBackColor = false;
-            BtnVacioChart.Click += BtnVacioChart_Click;
             // 
             // BtnCompleChart
             // 
@@ -327,7 +314,6 @@
             PnlPrincipal.Controls.Add(BtnInterChart);
             PnlPrincipal.Controls.Add(lblConjA);
             PnlPrincipal.Controls.Add(lblOperar);
-            PnlPrincipal.Controls.Add(BtnVacioChart);
             PnlPrincipal.Controls.Add(BtnUnionChart);
             PnlPrincipal.Controls.Add(BtnAchart);
             PnlPrincipal.Controls.Add(txtOper);
@@ -353,10 +339,9 @@
             // PnlGraficos
             // 
             PnlGraficos.BackColor = SystemColors.Control;
-            PnlGraficos.Dock = DockStyle.Fill;
             PnlGraficos.Location = new Point(0, 440);
             PnlGraficos.Name = "PnlGraficos";
-            PnlGraficos.Size = new Size(564, 340);
+            PnlGraficos.Size = new Size(564, 410);
             PnlGraficos.TabIndex = 48;
             PnlGraficos.Paint += PnlGraficos_Paint;
             // 
@@ -366,7 +351,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(564, 780);
+            ClientSize = new Size(564, 850);
             Controls.Add(PnlGraficos);
             Controls.Add(PnlPrincipal);
             Font = new Font("Noto Sans Math", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -400,7 +385,6 @@
         private Button BtnUchar;
         private Button BtnAchart;
         private Button BtnCalcular;
-        private Button BtnVacioChart;
         private Button BtnCompleChart;
         private Button BtnDifSimeChart;
         private Button BtnDiferenciaChart;
