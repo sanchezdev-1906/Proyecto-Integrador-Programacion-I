@@ -198,18 +198,5 @@ namespace Proyecto_Integrador_Programacion_I
             }
             return index == cadena.Length ? -1 : index;
         }
-        public static string ProductoCartesiano(string A, string B)
-        {
-            string producto = "{";
-            foreach (string i in ConjuntosElementos[A])
-            {
-                foreach (string j in ConjuntosElementos[B])
-                {
-                    producto += $"({i},{j}) ";
-                }
-            }
-            producto += "}";
-            return producto;
-        }
     }
 }
