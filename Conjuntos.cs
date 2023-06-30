@@ -56,30 +56,45 @@ namespace Proyecto_Integrador_Programacion_I
         /// Analiza una cadena, extrae las expresiones y calcula las operaciones
         /// </summary>
         /// <param name="cadena"></param>
-        /// <returns></returns>
-        /// <exception cref="DuplicatedSymbolsException"></exception>
         public static HashSet<string> CalcularConjuntos(string cadena)
         {
-            cadena = cadena.Replace(" ", "");
             Duplicados(cadena);
             int inicioParentesis = cadena.IndexOfAny(new char[] { '(', ')' });
+            
+            // Errores con parentesis
             if (inicioParentesis != -1 && cadena[inicioParentesis] == ')')
-                throw new Exception("Error de sintaxis )");
-            if (inicioParentesis != -1 && cadena[inicioParentesis] == '(' && EncontrarUltimoParentesis(cadena, inicioParentesis) == -1)
-                throw new Exception("Error de sintaxis ()");
-            if (cadena.Length != 0 && cadena[0] == '(' && EncontrarUltimoParentesis(cadena, inicioParentesis) == cadena.Length - 1)
+                throw new Exception("Error de sintaxis. ')' no tiene parentesis de apertura.");
+            if (EncontrarUltimoParentesis(cadena) == -1)
+                throw new Exception("Error de sintaxis. '(' No tiene parentesis de cierre");
+
+            // Caso parentesis ()
+            if (cadena[0] == '(' && EncontrarUltimoParentesis(cadena) == cadena.Length - 1)
+            {
                 cadena = cadena.Substring(1, cadena.Length - 2);
-            if (cadena.Length == 1) return ConjuntosElementos[cadena];
-            if (cadena.Length == 2) return Operar(ConjuntosElementos["U"], ConjuntosElementos[cadena[0].ToString()], 'ᶜ');
-            if (cadena.Length != 0 && cadena[0] == '(' && EncontrarUltimoParentesis(cadena, inicioParentesis) == cadena.Length - 2 && cadena[cadena.Length - 1] == 'ᶜ')
-                return Operar(ConjuntosElementos["U"], CalcularConjuntos(cadena.Substring(0, cadena.Length - 2)), 'ᶜ');
+            }
+            // Caso parentesis complemento ()ᶜ
+            if (cadena[0] == '(' && cadena[cadena.Length - 1] == 'ᶜ')
+            {
+                cadena = cadena.Substring(1, cadena.Length - 3);
+                return Operar(ConjuntosElementos["U"], CalcularConjuntos(cadena), 'ᶜ');
+            }
+
+            // Caso Conjunto
+            if (cadena.Length == 1) 
+                return ConjuntosElementos[cadena];
+            // Caso Conjuntoᶜ
+            if (cadena.Length == 2 && cadena[cadena.Length-1] == 'ᶜ') 
+                return Operar(ConjuntosElementos["U"], ConjuntosElementos[cadena[0].ToString()], 'ᶜ');
             else
             {
+                // Lista que almacena expresiones
                 List<HashSet<string>> Conjuntos = new List<HashSet<string>>();
+                // Lista que almacena operadores
                 List<char> Operadores = new List<char>();
                 string[] expressions = ExtraerExpresiones(cadena);
                 foreach (var expression in expressions)
                 {
+                    // Genera un conjunto a partir de cada subexpresion y lo agrega a la lista, paralelamente va agregando operadores a otra lista
                     Conjuntos.Add(CalcularConjuntos(expression));
                     cadena = cadena.Remove(0, expression.Length);
                     if (cadena.Length != 0)
@@ -88,7 +103,8 @@ namespace Proyecto_Integrador_Programacion_I
                         cadena = cadena.Remove(0, 1);
                     }
                 }
-                // Prioridad de operadores
+                
+                // Va realizando las operaciones de izquierda a derecha, operando los dos primeros con el primer operador y removiendo estos elementos
                 while (Conjuntos.Count() != 1 && Operadores.Count() != 0)
                 {
                     Conjuntos[0] = Operar(Conjuntos[0], Conjuntos[1], Operadores[0]);
@@ -107,7 +123,7 @@ namespace Proyecto_Integrador_Programacion_I
             {
                 if (cadena[i] == cadena[i + 1] && cadena[i] != ')' && cadena[i] != '(')
                 {
-                    throw new Exception("Letras Duplicadas");
+                    throw new Exception("Expresion Invalida. El conjunto no existe");
                 }
             }
         }
@@ -147,15 +163,15 @@ namespace Proyecto_Integrador_Programacion_I
 
                 if (cadena[0] == '(')
                 {
-                    if (cadena[EncontrarUltimoParentesis(cadena, 0)+1] == 'ᶜ')
+                    if (cadena[EncontrarUltimoParentesis(cadena)+1] == 'ᶜ')
                     {
-                        expressions.Add(cadena.Substring(0, EncontrarUltimoParentesis(cadena, 0) + 2));
-                        cadena = cadena.Remove(0, EncontrarUltimoParentesis(cadena, 0) + 2);
+                        expressions.Add(cadena.Substring(0, EncontrarUltimoParentesis(cadena) + 2));
+                        cadena = cadena.Remove(0, EncontrarUltimoParentesis(cadena) + 2);
                     }
                     else
                     {
-                        expressions.Add(cadena.Substring(0, EncontrarUltimoParentesis(cadena, 0) + 1));
-                        cadena = cadena.Remove(0, EncontrarUltimoParentesis(cadena, 0) + 1);
+                        expressions.Add(cadena.Substring(0, EncontrarUltimoParentesis(cadena) + 1));
+                        cadena = cadena.Remove(0, EncontrarUltimoParentesis(cadena) + 1);
                     }
                 }
                 else
@@ -177,7 +193,7 @@ namespace Proyecto_Integrador_Programacion_I
         /// <summary>
         ///  Dado el indice de un parentesis de apertura, busca el parentesis de cierre y devuelve su indice.
         /// </summary>
-        static int EncontrarUltimoParentesis(string cadena, int inicioParentesis)
+        static int EncontrarUltimoParentesis(string cadena)
         {
             int aux = 0;
             int index;
