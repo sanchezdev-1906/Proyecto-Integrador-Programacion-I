@@ -141,14 +141,6 @@ namespace Proyecto_Integrador_Programacion_I
             string[] ConjuntoResultante = Conjuntos.CalcularConjuntos(txtOper.Text).ToArray();
             int[] Resultados;
 
-            if (Regex.Match(txtOper.Text, @"^[A-C]x[A-C]$").Success)
-            {
-                string[] conjuntos = txtOper.Text.Split("x");
-                string resultado = Conjuntos.ProductoCartesiano(Conjuntos.ConjuntosElementos[conjuntos[0]], Conjuntos.ConjuntosElementos[conjuntos[1]]);
-                txtResultado.Text = resultado;
-                return;
-            }
-
             if (ConjuntoResultante.Length == 0)
             {
                 txtResultado.Text = "∅";
