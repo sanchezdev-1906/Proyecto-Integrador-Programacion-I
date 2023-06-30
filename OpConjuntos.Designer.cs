@@ -60,25 +60,27 @@
             // lblRes
             // 
             lblRes.AutoSize = true;
-            lblRes.Location = new Point(233, 10);
+            lblRes.Location = new Point(230, 374);
             lblRes.Margin = new Padding(4, 0, 4, 0);
             lblRes.Name = "lblRes";
             lblRes.Size = new Size(86, 24);
             lblRes.TabIndex = 47;
             lblRes.Text = "Resultado";
+            lblRes.Click += lblRes_Click;
             // 
             // txtResultado
             // 
-            txtResultado.Location = new Point(34, 39);
+            txtResultado.Location = new Point(31, 403);
             txtResultado.Margin = new Padding(4, 5, 4, 5);
             txtResultado.Name = "txtResultado";
             txtResultado.Size = new Size(492, 31);
             txtResultado.TabIndex = 46;
+            txtResultado.TextChanged += txtResultado_TextChanged;
             // 
             // lblConj
             // 
             lblConj.AutoSize = true;
-            lblConj.Location = new Point(114, 86);
+            lblConj.Location = new Point(109, 97);
             lblConj.Margin = new Padding(4, 0, 4, 0);
             lblConj.Name = "lblConj";
             lblConj.Size = new Size(88, 24);
@@ -88,7 +90,7 @@
             // rBtnConjs3
             // 
             rBtnConjs3.AutoSize = true;
-            rBtnConjs3.Location = new Point(174, 132);
+            rBtnConjs3.Location = new Point(169, 143);
             rBtnConjs3.Margin = new Padding(4, 5, 4, 5);
             rBtnConjs3.Name = "rBtnConjs3";
             rBtnConjs3.Size = new Size(40, 28);
@@ -101,7 +103,7 @@
             // rBtnConjs2
             // 
             rBtnConjs2.AutoSize = true;
-            rBtnConjs2.Location = new Point(107, 132);
+            rBtnConjs2.Location = new Point(102, 143);
             rBtnConjs2.Margin = new Padding(4, 5, 4, 5);
             rBtnConjs2.Name = "rBtnConjs2";
             rBtnConjs2.Size = new Size(40, 28);
@@ -114,7 +116,7 @@
             // lblConjC
             // 
             lblConjC.AutoSize = true;
-            lblConjC.Location = new Point(36, 283);
+            lblConjC.Location = new Point(31, 294);
             lblConjC.Margin = new Padding(4, 0, 4, 0);
             lblConjC.Name = "lblConjC";
             lblConjC.Size = new Size(24, 24);
@@ -125,7 +127,7 @@
             // lblConjB
             // 
             lblConjB.AutoSize = true;
-            lblConjB.Location = new Point(36, 228);
+            lblConjB.Location = new Point(31, 239);
             lblConjB.Margin = new Padding(4, 0, 4, 0);
             lblConjB.Name = "lblConjB";
             lblConjB.Size = new Size(24, 24);
@@ -135,7 +137,7 @@
             // lblConjA
             // 
             lblConjA.AutoSize = true;
-            lblConjA.Location = new Point(36, 177);
+            lblConjA.Location = new Point(31, 188);
             lblConjA.Margin = new Padding(4, 0, 4, 0);
             lblConjA.Name = "lblConjA";
             lblConjA.Size = new Size(24, 24);
@@ -144,7 +146,7 @@
             // 
             // txtConjC
             // 
-            txtConjC.Location = new Point(68, 280);
+            txtConjC.Location = new Point(63, 291);
             txtConjC.Margin = new Padding(4, 5, 4, 5);
             txtConjC.Name = "txtConjC";
             txtConjC.Size = new Size(209, 31);
@@ -153,7 +155,7 @@
             // 
             // txtConjB
             // 
-            txtConjB.Location = new Point(68, 225);
+            txtConjB.Location = new Point(63, 236);
             txtConjB.Margin = new Padding(4, 5, 4, 5);
             txtConjB.Name = "txtConjB";
             txtConjB.Size = new Size(210, 31);
@@ -161,7 +163,7 @@
             // 
             // txtConjA
             // 
-            txtConjA.Location = new Point(68, 170);
+            txtConjA.Location = new Point(63, 181);
             txtConjA.Margin = new Padding(4, 5, 4, 5);
             txtConjA.Name = "txtConjA";
             txtConjA.Size = new Size(210, 31);
@@ -169,16 +171,17 @@
             // 
             // txtOper
             // 
-            txtOper.Location = new Point(345, 115);
+            txtOper.Location = new Point(342, 143);
             txtOper.Margin = new Padding(4, 5, 4, 5);
             txtOper.Name = "txtOper";
             txtOper.Size = new Size(181, 31);
             txtOper.TabIndex = 36;
+            txtOper.TextChanged += txtOper_TextChanged;
             // 
             // lblOperar
             // 
             lblOperar.AutoSize = true;
-            lblOperar.Location = new Point(393, 86);
+            lblOperar.Location = new Point(388, 97);
             lblOperar.Margin = new Padding(4, 0, 4, 0);
             lblOperar.Name = "lblOperar";
             lblOperar.Size = new Size(90, 24);
@@ -189,10 +192,10 @@
             // 
             BtnCchar.BackColor = Color.FromArgb(217, 217, 217);
             BtnCchar.Enabled = false;
-            BtnCchar.Location = new Point(448, 166);
+            BtnCchar.Location = new Point(431, 184);
             BtnCchar.Margin = new Padding(4, 5, 4, 5);
             BtnCchar.Name = "BtnCchar";
-            BtnCchar.Size = new Size(35, 35);
+            BtnCchar.Size = new Size(49, 35);
             BtnCchar.TabIndex = 34;
             BtnCchar.Text = "C";
             BtnCchar.UseVisualStyleBackColor = false;
@@ -201,10 +204,10 @@
             // BtnBchar
             // 
             BtnBchar.BackColor = Color.FromArgb(217, 217, 217);
-            BtnBchar.Location = new Point(388, 166);
+            BtnBchar.Location = new Point(383, 184);
             BtnBchar.Margin = new Padding(4, 5, 4, 5);
             BtnBchar.Name = "BtnBchar";
-            BtnBchar.Size = new Size(35, 35);
+            BtnBchar.Size = new Size(47, 35);
             BtnBchar.TabIndex = 33;
             BtnBchar.Text = "B";
             BtnBchar.UseVisualStyleBackColor = false;
@@ -213,10 +216,10 @@
             // BtnUchar
             // 
             BtnUchar.BackColor = Color.FromArgb(217, 217, 217);
-            BtnUchar.Location = new Point(491, 166);
+            BtnUchar.Location = new Point(481, 184);
             BtnUchar.Margin = new Padding(4, 5, 4, 5);
             BtnUchar.Name = "BtnUchar";
-            BtnUchar.Size = new Size(35, 35);
+            BtnUchar.Size = new Size(44, 35);
             BtnUchar.TabIndex = 32;
             BtnUchar.Text = "U";
             BtnUchar.UseVisualStyleBackColor = false;
@@ -225,10 +228,10 @@
             // BtnAchart
             // 
             BtnAchart.BackColor = Color.FromArgb(217, 217, 217);
-            BtnAchart.Location = new Point(345, 166);
+            BtnAchart.Location = new Point(342, 184);
             BtnAchart.Margin = new Padding(4, 5, 4, 5);
             BtnAchart.Name = "BtnAchart";
-            BtnAchart.Size = new Size(35, 35);
+            BtnAchart.Size = new Size(40, 35);
             BtnAchart.TabIndex = 31;
             BtnAchart.Text = "A";
             BtnAchart.UseVisualStyleBackColor = false;
@@ -237,7 +240,7 @@
             // BtnCalcular
             // 
             BtnCalcular.BackColor = Color.FromArgb(217, 217, 217);
-            BtnCalcular.Location = new Point(345, 291);
+            BtnCalcular.Location = new Point(342, 291);
             BtnCalcular.Margin = new Padding(4, 5, 4, 5);
             BtnCalcular.Name = "BtnCalcular";
             BtnCalcular.Size = new Size(181, 34);
@@ -249,7 +252,7 @@
             // BtnVacioChart
             // 
             BtnVacioChart.BackColor = Color.FromArgb(217, 217, 217);
-            BtnVacioChart.Location = new Point(471, 251);
+            BtnVacioChart.Location = new Point(468, 251);
             BtnVacioChart.Margin = new Padding(4, 5, 4, 5);
             BtnVacioChart.Name = "BtnVacioChart";
             BtnVacioChart.Size = new Size(55, 30);
@@ -261,7 +264,7 @@
             // BtnCompleChart
             // 
             BtnCompleChart.BackColor = Color.FromArgb(217, 217, 217);
-            BtnCompleChart.Location = new Point(408, 251);
+            BtnCompleChart.Location = new Point(405, 251);
             BtnCompleChart.Margin = new Padding(4, 5, 4, 5);
             BtnCompleChart.Name = "BtnCompleChart";
             BtnCompleChart.Size = new Size(55, 30);
@@ -273,7 +276,7 @@
             // BtnDifSimeChart
             // 
             BtnDifSimeChart.BackColor = Color.FromArgb(217, 217, 217);
-            BtnDifSimeChart.Location = new Point(345, 251);
+            BtnDifSimeChart.Location = new Point(342, 251);
             BtnDifSimeChart.Margin = new Padding(4, 5, 4, 5);
             BtnDifSimeChart.Name = "BtnDifSimeChart";
             BtnDifSimeChart.Size = new Size(55, 30);
@@ -285,7 +288,7 @@
             // BtnDiferenciaChart
             // 
             BtnDiferenciaChart.BackColor = Color.FromArgb(217, 217, 217);
-            BtnDiferenciaChart.Location = new Point(471, 211);
+            BtnDiferenciaChart.Location = new Point(468, 220);
             BtnDiferenciaChart.Margin = new Padding(4, 5, 4, 5);
             BtnDiferenciaChart.Name = "BtnDiferenciaChart";
             BtnDiferenciaChart.Size = new Size(55, 30);
@@ -297,7 +300,7 @@
             // BtnUnionChart
             // 
             BtnUnionChart.BackColor = Color.FromArgb(217, 217, 217);
-            BtnUnionChart.Location = new Point(408, 211);
+            BtnUnionChart.Location = new Point(405, 220);
             BtnUnionChart.Margin = new Padding(4, 5, 4, 5);
             BtnUnionChart.Name = "BtnUnionChart";
             BtnUnionChart.Size = new Size(55, 30);
@@ -309,7 +312,7 @@
             // BtnInterChart
             // 
             BtnInterChart.BackColor = Color.FromArgb(217, 217, 217);
-            BtnInterChart.Location = new Point(345, 211);
+            BtnInterChart.Location = new Point(342, 220);
             BtnInterChart.Margin = new Padding(4, 5, 4, 5);
             BtnInterChart.Name = "BtnInterChart";
             BtnInterChart.Size = new Size(55, 30);
@@ -344,18 +347,19 @@
             PnlPrincipal.Controls.Add(txtConjB);
             PnlPrincipal.Controls.Add(BtnBchar);
             PnlPrincipal.Controls.Add(BtnDifSimeChart);
-            PnlPrincipal.Dock = DockStyle.Fill;
-            PnlPrincipal.Location = new Point(0, 250);
+            PnlPrincipal.Dock = DockStyle.Top;
+            PnlPrincipal.Location = new Point(0, 0);
             PnlPrincipal.Name = "PnlPrincipal";
-            PnlPrincipal.Size = new Size(564, 351);
-            PnlPrincipal.TabIndex = 49;
+            PnlPrincipal.Size = new Size(564, 440);
+            PnlPrincipal.TabIndex = 51;
             // 
             // PnlGraficos
             // 
-            PnlGraficos.Dock = DockStyle.Top;
-            PnlGraficos.Location = new Point(0, 0);
+            PnlGraficos.BackColor = SystemColors.Control;
+            PnlGraficos.Dock = DockStyle.Fill;
+            PnlGraficos.Location = new Point(0, 440);
             PnlGraficos.Name = "PnlGraficos";
-            PnlGraficos.Size = new Size(564, 250);
+            PnlGraficos.Size = new Size(564, 340);
             PnlGraficos.TabIndex = 48;
             PnlGraficos.Paint += PnlGraficos_Paint;
             // 
@@ -363,10 +367,11 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(564, 601);
-            Controls.Add(PnlPrincipal);
+            ClientSize = new Size(564, 780);
             Controls.Add(PnlGraficos);
+            Controls.Add(PnlPrincipal);
             Font = new Font("Noto Sans Math", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 5, 4, 5);
