@@ -30,7 +30,6 @@
         {
             button1 = new Button();
             PanelMenu = new Panel();
-            button2 = new Button();
             pnlPrincipal = new Panel();
             PanelMenu.SuspendLayout();
             SuspendLayout();
@@ -48,12 +47,10 @@
             button1.TabIndex = 0;
             button1.Text = "Opeeraciones entre conjuntos";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // PanelMenu
             // 
             PanelMenu.BackColor = Color.FromArgb(31, 37, 45);
-            PanelMenu.Controls.Add(button2);
             PanelMenu.Controls.Add(button1);
             PanelMenu.Dock = DockStyle.Top;
             PanelMenu.ForeColor = Color.White;
@@ -62,20 +59,6 @@
             PanelMenu.Name = "PanelMenu";
             PanelMenu.Size = new Size(850, 65);
             PanelMenu.TabIndex = 1;
-            // 
-            // button2
-            // 
-            button2.Dock = DockStyle.Left;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(243, 0);
-            button2.Margin = new Padding(0);
-            button2.Name = "button2";
-            button2.Size = new Size(176, 65);
-            button2.TabIndex = 1;
-            button2.Text = "Cardinalidad";
-            button2.UseVisualStyleBackColor = true;
             // 
             // pnlPrincipal
             // 

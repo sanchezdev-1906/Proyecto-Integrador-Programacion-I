@@ -67,11 +67,11 @@ namespace Proyecto_Integrador_Programacion_I
                 throw new Exception("Error de sintaxis )");
             if (inicioParentesis != -1 && cadena[inicioParentesis] == '(' && EncontrarUltimoParentesis(cadena, inicioParentesis) == -1)
                 throw new Exception("Error de sintaxis ()");
-            if (cadena[0] == '(' && EncontrarUltimoParentesis(cadena, inicioParentesis) == cadena.Length - 1)
+            if (cadena.Length != 0 && cadena[0] == '(' && EncontrarUltimoParentesis(cadena, inicioParentesis) == cadena.Length - 1)
                 cadena = cadena.Substring(1, cadena.Length - 2);
             if (cadena.Length == 1) return ConjuntosElementos[cadena];
             if (cadena.Length == 2) return Operar(ConjuntosElementos["U"], ConjuntosElementos[cadena[0].ToString()], 'ᶜ');
-            if (cadena[0] == '(' && EncontrarUltimoParentesis(cadena, inicioParentesis) == cadena.Length - 2 && cadena[cadena.Length - 1] == 'ᶜ')
+            if (cadena.Length != 0 && cadena[0] == '(' && EncontrarUltimoParentesis(cadena, inicioParentesis) == cadena.Length - 2 && cadena[cadena.Length - 1] == 'ᶜ')
                 return Operar(ConjuntosElementos["U"], CalcularConjuntos(cadena.Substring(0, cadena.Length - 2)), 'ᶜ');
             else
             {
@@ -89,7 +89,7 @@ namespace Proyecto_Integrador_Programacion_I
                     }
                 }
                 // Prioridad de operadores
-                while (Conjuntos.Count() != 1)
+                while (Conjuntos.Count() != 1 && Operadores.Count() != 0)
                 {
                     Conjuntos[0] = Operar(Conjuntos[0], Conjuntos[1], Operadores[0]);
                     Conjuntos.RemoveAt(1);
