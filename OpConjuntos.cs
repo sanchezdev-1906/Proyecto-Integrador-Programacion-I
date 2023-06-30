@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Proyecto_Integrador_Programacion_I
 {
@@ -22,6 +23,7 @@ namespace Proyecto_Integrador_Programacion_I
         }
         private void PnlGraficos_Paint(object sender, PaintEventArgs e)
         {
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             int centroX = PnlGraficos.Width / 2;
 
             int altura;
@@ -38,8 +40,8 @@ namespace Proyecto_Integrador_Programacion_I
 
             Rectangle rectU = new Rectangle(centroX - 250, 0, 500, altura);
             Region U = new Region(rectU);
-            Pen penU = new Pen(Color.Black, 2);
-            e.Graphics.DrawRectangle(penU, rectU);
+            Pen penBlack = new Pen(Color.Black, 2);
+            e.Graphics.DrawRectangle(penBlack, rectU);
 
             Brush brushConjuntos = new SolidBrush(Color.FromArgb(120, 57, 126, 214));
 
@@ -73,11 +75,18 @@ namespace Proyecto_Integrador_Programacion_I
                 Graficos.ConjuntosElementos["U"] = U;
             }
 
-            // Draw the path to the screen.
+            // Dibujar los conjuntos en pantalla.
+
             e.Graphics.FillRegion(brushConjuntos, A);
+            e.Graphics.DrawPath(penBlack, circleA);
+
             e.Graphics.FillRegion(brushConjuntos, B);
+            e.Graphics.DrawPath(penBlack, circleB);
             if (rBtnConjs3.Checked == true)
+            {
                 e.Graphics.FillRegion(brushConjuntos, C);
+                e.Graphics.DrawPath(penBlack, circleC);
+            }
 
             if (txtOper.Text != "")
             {
@@ -149,8 +158,18 @@ namespace Proyecto_Integrador_Programacion_I
             else
                 Conjuntos.ConjuntosElementos["U"] = U;
 
-            string[] ConjuntoResultante = Conjuntos.CalcularConjuntos(txtOper.Text).ToArray();
+            string[] ConjuntoResultante;
             int[] Resultados;
+
+            try
+            {
+                ConjuntoResultante = Conjuntos.CalcularConjuntos(txtOper.Text).ToArray();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             if (Regex.Match(txtOper.Text, @"^[A-C]x[A-C]$").Success)
             {
@@ -176,6 +195,7 @@ namespace Proyecto_Integrador_Programacion_I
         }
         private void rBtnConjs3_CheckedChanged(object sender, EventArgs e)
         {
+            PnlGraficos.Invalidate();
             if (rBtnConjs3.Checked == true)
             {
                 lblConjC.Visible = true;
@@ -185,6 +205,7 @@ namespace Proyecto_Integrador_Programacion_I
         }
         private void rBtnConjs2_CheckedChanged(object sender, EventArgs e)
         {
+            PnlGraficos.Invalidate();
             if (rBtnConjs2.Checked == true)
             {
                 lblConjC.Visible = false;
