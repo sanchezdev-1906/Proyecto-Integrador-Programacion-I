@@ -66,7 +66,6 @@
             lblRes.Size = new Size(86, 24);
             lblRes.TabIndex = 47;
             lblRes.Text = "Resultado";
-            lblRes.Click += lblRes_Click;
             // 
             // txtResultado
             // 
@@ -75,7 +74,6 @@
             txtResultado.Name = "txtResultado";
             txtResultado.Size = new Size(492, 31);
             txtResultado.TabIndex = 46;
-            txtResultado.TextChanged += txtResultado_TextChanged;
             // 
             // lblConj
             // 
@@ -176,7 +174,6 @@
             txtOper.Name = "txtOper";
             txtOper.Size = new Size(181, 31);
             txtOper.TabIndex = 36;
-            txtOper.TextChanged += txtOper_TextChanged;
             // 
             // lblOperar
             // 

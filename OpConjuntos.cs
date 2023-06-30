@@ -247,19 +247,5 @@ namespace Proyecto_Integrador_Programacion_I
             txtOper.SelectionStart = cursor + 1;
             txtOper.SelectionLength = 0;
         }
-
-        private void lblRes_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtResultado_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void txtOper_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
