@@ -5,6 +5,8 @@ namespace Proyecto_Integrador_Programacion_I
         public Calculadora()
         {
             InitializeComponent();
+            MostrarVentana(new OpConjuntos());
+            button1.ForeColor = Color.FromArgb(255, 233, 205, 93);
         }
         private void MostrarVentana(Form newForm)
         {
@@ -15,13 +17,6 @@ namespace Proyecto_Integrador_Programacion_I
             CentrarElementoAlPanel();
             newForm.Show();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MostrarVentana(new OpConjuntos());
-            button1.ForeColor = Color.FromArgb(255, 233, 205, 93);
-        }
-
         private void Calculadora_SizeChanged(object sender, EventArgs e)
         {
 
